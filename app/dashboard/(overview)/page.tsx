@@ -4,6 +4,11 @@ import RevenueChart from "../../ui/dashboard/revenue-chart"
 import { lusitana } from "../../ui/fonts"
 import { CardSkeleton, LatestInvoicesSkeleton, RevenueChartSkeleton } from "@/app/ui/skeletons"
 import CardWrapper from "@/app/ui/dashboard/cards"
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Dashboard',
+};
 
 export default async function dashboard_Page(){
 
@@ -14,7 +19,14 @@ export default async function dashboard_Page(){
                     Dashboard
                 </h1>
                 <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                    <Suspense fallback={<CardSkeleton/>}>
+                    <Suspense fallback={
+                    <>
+                        <CardSkeleton/>
+                        <CardSkeleton/>
+                        <CardSkeleton/>
+                        <CardSkeleton/>
+                    </>
+                    }>
                         <CardWrapper/>
                     </Suspense>
                 </div>
